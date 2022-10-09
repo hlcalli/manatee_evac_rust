@@ -7,16 +7,26 @@
 
 fn main() {
     // take input with arrays (size/age)
-    use std::io::{stdin,stdout,Write};
-        let mut s=String::new();
-        let _=stdout().flush();
-        if let Some('\n')=s.chars().next_back() {
-            s.pop();
+    use io::BufRead;
+    use std::io; // necessary to have `.lines()` on
+                 // locked stdin available
+        let stdin = io::stdin();
+        let mut lines = stdin.lock().lines();
+        let numberofnames: usize = lines
+            .next()
+            .expect("Need input from stdin") // checking for any line being present
+            .expect("Need number of names")
+            .trim()
+            .parse()
+            .expect("Need a number");
+        let names = lines
+            .take(numberofnames)
+            .map(|line| line.expect("Need name").trim().into())
+            .collect::<Vec<String>>();
+        if names.len() < numberofnames {
+            panic!("Need more names, only got {}!", names.len());
         }
-        if let Some('\r')=s.chars().next_back() {
-            s.pop();
-        }
-    
+        
     // create manatee struct
     struct Manatee {
         size: f32,
