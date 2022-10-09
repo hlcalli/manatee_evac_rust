@@ -5,12 +5,34 @@
 // Implementation: rust
 
 
-
-
-// take input with arrays (size/age)
-// call sort 
-// create binary search tree
-// find best match - same age, smaller male-->larger female (closest distance in size)
+fn main() {
+    // take input with arrays (size/age)
+    use std::io::{stdin,stdout,Write};
+        let mut s=String::new();
+        let _=stdout().flush();
+        if let Some('\n')=s.chars().next_back() {
+            s.pop();
+        }
+        if let Some('\r')=s.chars().next_back() {
+            s.pop();
+        }
+    
+    // create manatee struct
+    struct Manatee {
+        size: f32,
+        age: f32,
+        id: f32,
+    }
+    
+    // create binary search tree
+    
+    
+    // find best match - same age, smaller male-->larger female (closest distance in size)
+    
+    
+    // print output (make sure no '[]')
+    
+    }
 
 
 
