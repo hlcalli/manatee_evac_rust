@@ -45,6 +45,8 @@ fn main() {
 
     // Fetches each user input for the rows (Female Age is the only one setup right now).
     let _female_age_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
+
+    // Prints out variables above for checking (You have to use {:?} for vectors).
     println!("Number in Each Row: {}", _number_in_each_row);
     println!("Female Age Row : {:?}", _female_age_row);
 }
