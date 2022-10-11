@@ -13,12 +13,19 @@ fn fetch_number_in_each_row() -> usize {
     return input.trim().parse().expect("Need a number");
 }
 fn fetch_row_array(text: &str, row_length: usize) -> Vec<String> {
+    // Where the input will be stored
     let mut input = String::new();
+
+    // Establishes a vector of type String::new() and with a size of row_length.
     let mut row = vec![String::new(); row_length];
 
+    // Prints out what you want to ask the user.
     println!("{}", text);
+
+    // Gets whatever the user types and shoves it in input.
     io::stdin().read_line(&mut input).expect("Need name");
 
+    // Iterates row_length times and sets the character to row[i]
     for i in 0..row_length {
         row[i] = input.as_str().chars().nth(i).unwrap().to_string()
     }
@@ -27,15 +34,11 @@ fn fetch_row_array(text: &str, row_length: usize) -> Vec<String> {
 }
 
 fn main() {
-    // Take input with arrays (size/age)
-
+    // Gets the number in each row.
     let _number_in_each_row: usize = fetch_number_in_each_row();
+
+    // Fetches each user input for the rows. (Female Age is the only one setup right now.)
     let _female_age_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
     println!("Number in Each Row: {}", _number_in_each_row);
     println!("Female Age Row : {:?}", _female_age_row);
-    // create binary search tree
-
-    // find best match - same age, smaller male-->larger female (closest distance in size)
-
-    // print output (make sure no '[]')
 }
