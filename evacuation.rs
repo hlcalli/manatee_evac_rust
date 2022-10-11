@@ -49,4 +49,23 @@ fn main() {
     // Prints out variables above for checking (You have to use {:?} for vectors).
     println!("Number in Each Row: {}", _number_in_each_row);
     println!("Female Age Row : {:?}", _female_age_row);
+
+
+
+     // create manatee struct
+     struct Manatee {
+        size: f32,
+        age: f32,
+        id: f32,
+    }
+    
+    // create binary search tree
+    
+    
+    // find best match - same age, smaller male-->larger female (closest distance in size)
+    
+    
+    // print output (make sure no '[]')
+    
+    }
 }
