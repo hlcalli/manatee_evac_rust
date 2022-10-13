@@ -25,9 +25,6 @@ fn fetch_row_array(text: &str, row_length: usize) -> Vec<String> {
     // Establishes a vector of type String::new() and with a size of row_length.
     let mut row = vec![String::new(); row_length];
 
-    // Prints out what you want to ask the user.
-    println!("{}", text);
-
     // Gets whatever the user types and shoves it in input.
     io::stdin().read_line(&mut input).expect("Need name");
 
@@ -60,6 +57,41 @@ fn main() {
     }
     
     // create binary search tree
+    extern crate binary_search_tree;
+ 
+use binary_search_tree::BinarySearchTree;
+ 
+// Create a new binary search tree and fill it with numbers from 1 to 5:
+let mut tree: BinarySearchTree<i32> = BinarySearchTree::new();
+for i in vec![3, 1, 2, 5, 4] {
+    tree.insert(i);
+}
+ 
+// Get them in sorted order
+assert_eq!(tree.sorted_vec(), vec![&1, &2, &3, &4, &5]);
+ 
+// Let's extract the minimum and maximum.
+assert_eq!(tree.extract_min(), Some(1));
+assert_eq!(tree.extract_max(), Some(5));
+assert_eq!(tree.sorted_vec(), vec![&2, &3, &4]);
+ 
+// We can also extend the tree with elements from the iterator.
+tree.extend((0..6).map(|x| if x%2 == 0 { x } else { -x }));
+assert_eq!(tree.len(), 9);
+ 
+// If the elements must be unique, you should use insert_without_dup().
+tree.insert_without_dup(0);
+assert_eq!(tree.len(), 9);
+ 
+// Delete the value 0 from the tree and make sure that the deletion actually occurred.
+tree.remove(&0);
+assert!(!tree.contains(&0));
+ 
+// We can clear the tree of any remaining items.
+tree.clear();
+ 
+// The tree should now be empty.
+assert!(tree.is_empty());
     
     
     // find best match - same age, smaller male-->larger female (closest distance in size)
@@ -75,8 +107,6 @@ for &elem in set.range((Included(&4), Included(&8))) {
 }
 assert_eq!(Some(&5), set.range(4..).next());
     
-    
-    // print output (make sure no '[]')
     
     }
 }
