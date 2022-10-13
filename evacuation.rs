@@ -2,7 +2,7 @@
 // Author: Seth Heinzman, mheinzman2017@my.fit.edu
 // Course: CSE 4250, Fall 2022
 // Project: Proj2, Manatee Evacuation
-// Implementation: rust
+// Implementation: rustc 1.57.0 (f1edd0429 2021-11-29)
 
 use std::io;
 
@@ -63,6 +63,17 @@ fn main() {
     
     
     // find best match - same age, smaller male-->larger female (closest distance in size)
+    // Use Btree
+    use std::collections::BTreeSet;
+use std::ops::Bound::Included;
+let mut set = BTreeSet::new();
+set.insert(3);
+set.insert(5);
+set.insert(8);
+for &elem in set.range((Included(&4), Included(&8))) {
+    println!("{elem}");
+}
+assert_eq!(Some(&5), set.range(4..).next());
     
     
     // print output (make sure no '[]')
