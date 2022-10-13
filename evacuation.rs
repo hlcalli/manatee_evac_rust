@@ -5,6 +5,8 @@
 // Implementation: rustc 1.57.0 (f1edd0429 2021-11-29)
 
 use std::io;
+//use binary_search_tree::BinarySearchTree;
+
 
 fn fetch_number_in_each_row() -> usize {
     // Initializes type of input.
@@ -18,7 +20,7 @@ fn fetch_number_in_each_row() -> usize {
     // Sets the input to a number. In this case a usize (That's what the site did).
     return input.trim().parse().expect("Need a number");
 }
-fn fetch_row_array(text: &str, row_length: usize) -> Vec<String> {
+fn fetch_row_array(_text: &str, row_length: usize) -> Vec<String> {
     // Initializes type of input.
     let mut input = String::new();
 
@@ -42,24 +44,30 @@ fn main() {
 
     // Fetches each user input for the rows (Female Age is the only one setup right now).
     let _female_age_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
+    let _female_size_row = fetch_row_array("Please Enter Female size Row :", _number_in_each_row);
+    let _male_age_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
+    let _male_size_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
 
     // Prints out variables above for checking (You have to use {:?} for vectors).
     println!("Number in Each Row: {}", _number_in_each_row);
-    println!("Female Age Row : {:?}", _female_age_row);
+    println!("{:?}", _female_age_row);
+    println!("{:?}", _female_size_row);
+    println!("{:?}", _male_age_row);
+    println!("{:?}", _male_size_row);
 
 
-
+  /* 
      // create manatee struct
      struct Manatee {
         size: f32,
         age: f32,
         id: f32,
     }
-    
+ 
     // create binary search tree
     extern crate binary_search_tree;
  
-use binary_search_tree::BinarySearchTree;
+
  
 // Create a new binary search tree and fill it with numbers from 1 to 5:
 let mut tree: BinarySearchTree<i32> = BinarySearchTree::new();
@@ -107,6 +115,5 @@ for &elem in set.range((Included(&4), Included(&8))) {
 }
 assert_eq!(Some(&5), set.range(4..).next());
     
-    
-    }
+    */
 }
