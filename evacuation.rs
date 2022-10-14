@@ -6,7 +6,21 @@
 
 use std::io;
 //use binary_search_tree::BinarySearchTree;
+#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+// create manatee struct
+struct Manatee {
+    msize: u32,
+    age: u32,
+}
 
+impl Manatee {
+    pub fn new(msize: u32, age: u32) -> Self {
+        Manatee {
+            msize,
+            age
+        }
+    }
+}
 
 fn fetch_number_in_each_row() -> usize {
     // Initializes type of input.
@@ -42,28 +56,29 @@ fn main() {
     // Gets the number in each row.
     let _number_in_each_row: usize = fetch_number_in_each_row();
 
-    // Fetches each user input for the rows (Female Age is the only one setup right now).
+    // Fetches each user input for the rows
     let _female_age_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
     let _female_size_row = fetch_row_array("Please Enter Female size Row :", _number_in_each_row);
     let _male_age_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
     let _male_size_row = fetch_row_array("Please Enter Female Age Row :", _number_in_each_row);
 
     // Prints out variables above for checking (You have to use {:?} for vectors).
-    println!("Number in Each Row: {}", _number_in_each_row);
     println!("{:?}", _female_age_row);
     println!("{:?}", _female_size_row);
     println!("{:?}", _male_age_row);
     println!("{:?}", _male_size_row);
 
+    let mut manatee = vec![
+        Manatee::new(1, 1),
+        Manatee::new(1, 2),
+        Manatee::new(2, 3),
+    ];
 
-  /* 
-     // create manatee struct
-     struct Manatee {
-        size: f32,
-        age: f32,
-        id: f32,
-    }
- 
+    // Sort people by derived natural order (Name and age)
+    manatee.sort();
+  
+     
+ /*
     // create binary search tree
     extern crate binary_search_tree;
  
