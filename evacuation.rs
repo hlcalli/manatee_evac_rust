@@ -74,9 +74,15 @@ fn main() {
         Manatee::new(2, 3),
     ];
 
-    // Sort people by derived natural order (Name and age)
+    // Sort people by derived natural order (size and age)
     manatee.sort();
   
+    for index in 0.._female_age_row.len() {
+        println!("{}",_female_age_row[index]);
+    }
+    for index in 0.._male_age_row.len() {
+        println!("{}",_male_age_row[index]);
+    }
      
  /*
     // create binary search tree
